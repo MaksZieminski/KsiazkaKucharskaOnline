@@ -1,0 +1,132 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+    background-color:  white;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.field-validation-error {
+    font-size: 12px;
+    color: red;
+}
+
+.input-validation-error {
+    border: 2px solid red;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.CommentSection {
+    margin-top: 33px;
+    background-color: lightgray;
+    padding: 10px;
+    color: black;
+}
+
+.SingleComment {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 4px solid gainsboro;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    color: darkcyan;
+    background-color: aliceblue
+}
+
+.CommentPublishDate {
+    margin-top: 20px;
+    margin-right: 10px;
+    font-size: 13px;
+}
+
+.CommentAuthor {
+    font-size: 15px;
+    magin-right: 15px;
+}
+
+.form-control {
+    Width: 20000px;
+    Height: 50px;
+    text-align: initial;
+    text-orientation: initial;
+    border-color: blue;
+    background-color: white;
+}
+
+#recipeTitle {
+    margin-top: 50px;
+    font-size: 31px;
+    padding: 25px;
+    background-color: papayawhip;
+}
+
+#recipeDetailContainer {
+    background-color:ivory;
+}
+
+
+#recipeDescription {
+    font-size: 19px;
+    padding: 25px;
+    background-color: lemonchiffon;
+}
+
+.recipes-list-container {
+    margin-top:30px;
+    background-color:white;
+    margin-bottom:25px;
+    margin-bottom:30px;
+        
+}
+
+.recipe-in-container {
+    background-color: lemonchiffon;
+    padding: 15px;
+    margin-top: 10px;
+    magin-bottom: 10px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.h5 {
+    background-color:ivory;
+}
+

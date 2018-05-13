@@ -1,0 +1,49 @@
+﻿@model KsiazkaOnline.ViewModels.RecipeWithReview
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="recipeDetailContainer">
+<div id="recipeTitle">@Model.recipe.Title</div>
+<div id="recipeDescription">@Model.recipe.Description</div>
+</div>
+
+<div class="CommentSection">
+    <font size="6">Komentarze :</font>
+
+
+    @foreach (var review in Model.reviews)
+    {
+        <div class="SingleComment">
+            @review.Text
+            <div class="CommentPublishDate">@review.PublishDate</div>
+            <div class="CommentAuthor">
+               
+                
+                @review.Email
+                
+            </div>
+        </div>
+    }
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        using (Html.BeginForm("Save", "Reviews"))
+        {
+
+
+            <div class="form-group">
+
+                <label>Dodaj swój komentarz :</label>
+                @Html.TextBoxFor(r => r.review.Text, new { @class = "form-control" })
+            </div>
+
+            @Html.HiddenFor(r => r.review.ApplicationUser)
+            <button type="submit" , class="btn btn-primary">Dodaj</button>
+
+        }
+
+    }
+</div>
+    
+    

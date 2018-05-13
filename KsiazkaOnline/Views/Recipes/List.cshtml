@@ -1,0 +1,108 @@
+﻿@using KsiazkaOnline.Models
+@model KsiazkaOnline.ViewModels.RecipeWithTypeViewModel
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Search", "Recipes"))
+{<br /><br />
+    <table>
+        <thread>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <h5>
+                        <h4><b>Wyszukaj przepisu</b></h4>
+                        @Html.TextBoxFor(r => r.searchPhrase, "SearchPhrase", new { @class = "form-control" })
+                         </h5>
+                    </div>
+                </td>
+                <td>
+
+
+                    <div>
+                        <br/>
+                        <button type="submit" , class="btn btn-primary">Szukaj</button>
+                    </div>
+                </td>
+            </tr>
+        </thread>
+    </table>
+}
+
+@if (!Model.recipes.Any())
+{
+    <p>Brak przepisów.</p>
+    <p>
+        @Html.ActionLink("Dodaj przepis", "New", "Recipes", null, new { @class = "btn btn-primary" })
+    </p>
+}
+
+
+else
+{
+    @*<table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Przepis</th>
+                <th>Rodzaj</th>
+                <th>Wynik</th>
+                <th>Sprawdz</th>
+                <th>Usun</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var recipe in Model.recipes)
+            {
+                <tr>
+                    <td>@Html.ActionLink(recipe.Title, "Edit", "Recipes", new { id = recipe.ID }, null)</td>
+                    <td>@recipe.RecipeType.Name</td>
+                    <td>@recipe.Score/5</td>
+                    <td>
+                        @Html.ActionLink("Przepis", $"Details/{recipe.ID}", "Recipes", null, new { @class = "btn btn-primary" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("X", $"Delete/{recipe.ID}", "Recipes", null, new { @class = "btn btn-primary" })
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>*@
+
+    <div class="recipes-list-container">
+
+        @foreach (var recipe in Model.recipes)
+        {
+        <div class="recipe-in-container">
+
+
+            @Html.ActionLink(recipe.Title, "Edit", "Recipes", new { id = recipe.ID }, null)
+            <h4>Kategoria: @recipe.RecipeType.Name</h4>
+            <div class="recipe-buttons">
+                @Html.ActionLink("Przepis", $"Details/{recipe.ID}", "Recipes", null, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Usuń", $"Delete/{recipe.ID}", "Recipes", null, new { @class = "btn btn-primary" })
+
+            </div>
+
+        </div>
+        }
+
+
+    </div>
+
+
+
+
+    <p>
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            @Html.ActionLink("Dodaj przepis", "New", "Recipes", null, new { @class = "btn btn-primary" })
+        }
+    </p>
+}
+
